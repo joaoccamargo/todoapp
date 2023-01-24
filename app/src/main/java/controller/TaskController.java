@@ -10,6 +10,8 @@ import util.ConnectionFactory;
 public class TaskController {
     
     public void save(Task task){
+        
+        
     
     
     }
@@ -20,6 +22,7 @@ public class TaskController {
     }
     
     public void removeById(int taskId) throws SQLException{
+        // Remove data by ID
         
         String sql = "DELETE FROM tasks WHERE id = ?";
         
