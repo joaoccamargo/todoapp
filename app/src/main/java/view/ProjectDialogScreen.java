@@ -13,7 +13,7 @@ import model.Project;
  * @author Joao
  */
 public class ProjectDialogScreen extends javax.swing.JDialog {
-
+    
     ProjectController controller;
     
     public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {
@@ -150,13 +150,15 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
     private void jLabelToolBarSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelToolBarSaveMouseClicked
         
+        try{
         Project project = new Project();
         project.setName(jTextFieldName.getText());
         project.setDescription(jTextAreaDescription.getText());
-        
         controller.save(project);
         JOptionPane.showMessageDialog(rootPane, "Projeto salvo com sucesso!");
-        
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
         this.dispose();
     }//GEN-LAST:event_jLabelToolBarSaveMouseClicked
 
@@ -171,7 +173,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Java swing".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

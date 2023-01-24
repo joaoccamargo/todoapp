@@ -12,6 +12,7 @@ public class Project {
     
     public Project(){
         this.createdAt = new Date();
+        this.updatedAt = new Date();
     }
 
     public Project(int id, String name, String description, Date createdAt, Date updatedAt) {
