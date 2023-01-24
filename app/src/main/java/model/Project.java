@@ -9,6 +9,10 @@ public class Project {
     private String description;
     private Date createdAt;
     private Date updatedAt;
+    
+    public Project(){
+        this.createdAt = new Date();
+    }
 
     public Project(int id, String name, String description, Date createdAt, Date updatedAt) {
         this.id = id;
@@ -62,9 +66,4 @@ public class Project {
     public String toString() {
         return " Project{" + "id=" + id + ", name=" + name + ", description=" + description + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
     }
-    
-    
-    
-    
-    
 }

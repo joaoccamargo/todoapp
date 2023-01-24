@@ -114,7 +114,6 @@ public class TaskController {
         } finally {
             ConnectionFactory.closeConnection(conn, statement);
         }
-
     }
 
     public List<Task> getAll(int idProject) {
