@@ -80,7 +80,7 @@ public class TaskController {
         }
     }
 
-    public void removeById(int taskId) throws SQLException {
+    public void removeById(int taskId) {
         // Remove data by ID
 
         String sql = "DELETE FROM tasks WHERE id = ?";

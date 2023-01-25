@@ -368,14 +368,20 @@ public class MainScreen extends javax.swing.JFrame {
     private void jTableTasksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTasksMouseClicked
         int rowIndex = jTableTasks.rowAtPoint(evt.getPoint());
         int columnIndex = jTableTasks.columnAtPoint(evt.getPoint());
+        Task task = taskModel.getTasks().get(rowIndex);
         
         switch(columnIndex){
             case 3:
-                Task task = taskModel.getTasks().get(rowIndex);
                 taskController.update(task);
+                break;
             case 4:
                 break;
             case 5:
+                taskController.removeById(task.getId());
+                taskModel.getTasks().remove(task);
+                int projectIndex = jListProjects.getSelectedIndex();
+                Project project = (Project) projectsModel.get(projectIndex);
+                loadTasks(project.getId());
                 break;        
 
         }
