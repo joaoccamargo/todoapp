@@ -1,5 +1,6 @@
 package util;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -12,17 +13,53 @@ public class TaskTableModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return tasks.size();
+        
     }
 
     @Override
     public int getColumnCount() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+         return columns.length;        
+    }
+    
+    @Override
+    public String getColumnName(int columnIndex){
+        return columns[columnIndex];
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        switch(columnIndex) {
+            case 0:
+                return tasks.get(rowIndex).getName();
+            case 1:
+                return tasks.get(rowIndex).getDescription();
+            case 2:
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                return dateFormat.format(tasks.get(rowIndex).getDeadline());
+            case 3:
+                return tasks.get(rowIndex).getIsCompleted();
+            case 4:
+                return "";
+            case 5:
+                return "";
+                
+            default:
+                return "Dados não encontrados";    
+        }
+    }
+
+    public String[] getColumns() {
+        return columns;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
     
 }
