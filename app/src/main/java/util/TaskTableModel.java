@@ -14,7 +14,6 @@ public class TaskTableModel extends AbstractTableModel {
     @Override
     public int getRowCount() {
         return tasks.size();
-        
     }
 
     @Override
@@ -25,6 +24,18 @@ public class TaskTableModel extends AbstractTableModel {
     @Override
     public String getColumnName(int columnIndex){
         return columns[columnIndex];
+    }
+    
+    public boolean isCellEditable(int rowIndex, int columnIndex){   
+        return columnIndex == 3;
+    }
+    
+    @Override
+    public Class<?> getColumnClass(int columnIndex){
+        if(tasks.isEmpty()){
+            return Object.class;
+        } 
+        return this.getValueAt(0, columnIndex).getClass();
     }
 
     @Override
