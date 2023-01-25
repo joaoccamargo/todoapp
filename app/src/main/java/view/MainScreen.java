@@ -211,6 +211,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.setLayout(new java.awt.BorderLayout());
 
         jTableTasks.setBackground(new java.awt.Color(255, 255, 255));
         jTableTasks.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -254,6 +255,8 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jScrollPaneTasks.setViewportView(jTableTasks);
 
+        jPanel5.add(jScrollPaneTasks, java.awt.BorderLayout.CENTER);
+
         jPanelEmptyList.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabelEmptyListIcon.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -294,29 +297,7 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap(78, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPaneTasks, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanelEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPaneTasks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanelEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        jPanel5.add(jPanelEmptyList, java.awt.BorderLayout.PAGE_START);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
