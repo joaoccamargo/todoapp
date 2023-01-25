@@ -11,8 +11,8 @@ import model.Task;
 import util.ConnectionFactory;
 
 public class TaskController {
-
-    public void save(Task task) throws SQLException {
+    
+   public void save(Task task) {
 
         String sql = "INSERT INTO tasks (idProject, name, description, completed, notes, deadline,"
                 + "createdAt, updatedAt) VALUES (?,?,?,?,?,?,?,?)";
@@ -48,16 +48,7 @@ public class TaskController {
 
     public void update(Task task) {
 
-        String sql = "UPDATE tasks SET ("
-                + "idProject = ?, "
-                + "name = ?, "
-                + "description = ?, "
-                + "completed = ?, "
-                + "notes = ?, "
-                + "deadline = ?,"
-                + "createdAt = ?, "
-                + "updatedAt = ?"
-                + "WHERE id = ?)";
+        String sql = "UPDATE tasks SET idProject = ?, name = ?, description = ?,  completed = ?, notes = ?, deadline = ?, createdAt = ?, updatedAt = ? WHERE id = ?";
 
         Connection conn = null;
         PreparedStatement statement = null;
@@ -82,7 +73,7 @@ public class TaskController {
             
             // Execute query
             statement.execute();   
-         } catch (Exception ex) {
+         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao atualizar a tarefa " + ex.getMessage(), ex);
         } finally {
             ConnectionFactory.closeConnection(conn, statement);
@@ -109,7 +100,7 @@ public class TaskController {
             
              // Execute query
             statement.execute();
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             throw new RuntimeException("Erro ao remover a tarefa " + ex.getMessage(), ex);
         } finally {
             ConnectionFactory.closeConnection(conn, statement);
@@ -160,7 +151,7 @@ public class TaskController {
                tasks.add(task);
            }
             
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
              throw new RuntimeException("Erro na lista de tarefas " + ex.getMessage(), ex);
         } finally {
             ConnectionFactory.closeConnection(conn, statement, resultSet);
