@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
 
 -- Copiando estrutura para tabela todoapp.tasks
 CREATE TABLE IF NOT EXISTS `tasks` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `idProject` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `description` varchar(255) NOT NULL,
