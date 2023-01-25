@@ -84,14 +84,14 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
         jLabelName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelName.setText("Nome");
+        jLabelName.setText("Nome*");
 
         jTextFieldName.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jLabelDescription.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelDescription.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelDescription.setText("DescriÃ§Ã£o");
+        jLabelDescription.setText("Descrição");
 
         jTextAreaDescription.setBackground(new java.awt.Color(255, 255, 255));
         jTextAreaDescription.setColumns(20);
@@ -151,15 +151,20 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     private void jLabelToolBarSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelToolBarSaveMouseClicked
         
         try{
-        Project project = new Project();
-        project.setName(jTextFieldName.getText());
-        project.setDescription(jTextAreaDescription.getText());
-        controller.save(project);
-        JOptionPane.showMessageDialog(rootPane, "Projeto salvo com sucesso!");
+           if(!jTextFieldName.getText().equals("")){
+                Project project = new Project();
+                project.setName(jTextFieldName.getText());
+                project.setDescription(jTextAreaDescription.getText());
+                controller.save(project);
+                JOptionPane.showMessageDialog(rootPane, "Projeto salvo com sucesso!");
+                this.dispose();
+           } else {
+               JOptionPane.showMessageDialog(rootPane, "*Campos obrigatorios vazios*");
+           }
         } catch (Exception e){
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
-        this.dispose();
+        
     }//GEN-LAST:event_jLabelToolBarSaveMouseClicked
 
     /**

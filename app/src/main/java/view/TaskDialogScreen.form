@@ -102,7 +102,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Nome"/>
+            <Property name="text" type="java.lang.String" value="Nome*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldName">
@@ -123,7 +123,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o*"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPaneDescription">
@@ -155,7 +155,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Notas"/>
+            <Property name="text" type="java.lang.String" value="Notas*"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPaneNotes">
@@ -187,7 +187,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Prazo"/>
+            <Property name="text" type="java.lang.String" value="Prazo*"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldDeadline">

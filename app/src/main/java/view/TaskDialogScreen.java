@@ -58,14 +58,14 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         jLabelName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelName.setText("Nome");
+        jLabelName.setText("Nome*");
 
         jTextFieldName.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldName.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabelDescription.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelDescription.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelDescription.setText("DescriÃ§Ã£o");
+        jLabelDescription.setText("Descrição*");
 
         jTextAreaDescription.setBackground(new java.awt.Color(255, 255, 255));
         jTextAreaDescription.setColumns(20);
@@ -75,7 +75,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         jLabelNotes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelNotes.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelNotes.setText("Notas");
+        jLabelNotes.setText("Notas*");
 
         jTextAreaNotes.setBackground(new java.awt.Color(255, 255, 255));
         jTextAreaNotes.setColumns(20);
@@ -85,7 +85,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         jLabelDeadline.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabelDeadline.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelDeadline.setText("Prazo");
+        jLabelDeadline.setText("Prazo*");
 
         jFormattedTextFieldDeadline.setBackground(new java.awt.Color(255, 255, 255));
         jFormattedTextFieldDeadline.setForeground(new java.awt.Color(0, 0, 0));
@@ -191,24 +191,27 @@ public class TaskDialogScreen extends javax.swing.JDialog {
     private void jLabelToolBarSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelToolBarSaveMouseClicked
        
         try {
+            if(!jTextFieldName.getText().equals("") && !jTextAreaDescription.getText().equals("") && !jTextAreaNotes.getText().equals("")){
             Task task = new Task();
             task.setIdProject(project.getId());
             task.setName(jTextFieldName.getText());
             task.setDescription(jTextAreaDescription.getText());
             task.setNotes(jTextAreaNotes.getText());
             task.setIsCompleted(false);
-            
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             Date deadline = null;
-            
             deadline = dateFormat.parse(jFormattedTextFieldDeadline.getText());
             task.setDeadline(deadline);
             controller.save(task);
             JOptionPane.showMessageDialog(rootPane, "Tarefa salva com sucesso");
+             this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "*Campos obrigatorios vazios*");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());  
         }
-        this.dispose();
+       
     }//GEN-LAST:event_jLabelToolBarSaveMouseClicked
 
     /**
