@@ -365,8 +365,23 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jLabelTasksAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTasksAddMouseClicked
        TaskDialogScreen taskDialogScreen = new TaskDialogScreen(this, rootPaneCheckingEnabled);
-       //taskDialogScreen.setProject(null);
+       
+       
+       int projectIndex = jListProjects.getSelectedIndex();
+       Project project = (Project) projectsModel.get(projectIndex);
+       taskDialogScreen.setProject(project);
+       
        taskDialogScreen.setVisible(true);
+       
+       taskDialogScreen.addWindowListener(new WindowAdapter(){
+           public void windowClosed(WindowEvent e){
+               int projectIndex = jListProjects.getSelectedIndex();
+               Project project = (Project) projectsModel.get(projectIndex);
+               loadTasks(project.getId());
+           }
+       });
+       
+       
     }//GEN-LAST:event_jLabelTasksAddMouseClicked
 
     private void jTableTasksMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTasksMouseClicked
@@ -471,7 +486,13 @@ public class MainScreen extends javax.swing.JFrame {
         
         taskModel = new TaskTableModel();
         jTableTasks.setModel(taskModel);
-        loadTasks(1);
+        
+        if(!projectsModel.isEmpty()){
+            jListProjects.setSelectedIndex(0);
+            int projectIndex = jListProjects.getSelectedIndex();
+            Project project = (Project) projectsModel.get(0);
+            loadTasks(project.getId());
+        }
     }
     
     public void loadTasks(int idProject){
