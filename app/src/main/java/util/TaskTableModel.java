@@ -8,7 +8,7 @@ import model.Task;
 
 public class TaskTableModel extends AbstractTableModel {
     
-    String[] columns = {"Nome", "Descri√ß√£o", "Prazo", "Tarefa Concluida", "Editar", "Excluir"};
+    String[] columns = {"Nome", "DescriÁ„o", "Prazo", "Tarefa Concluida", "Editar", "Excluir"};
     List<Task> tasks = new ArrayList();
 
     @Override
@@ -57,7 +57,7 @@ public class TaskTableModel extends AbstractTableModel {
                 return "";
                 
             default:
-                return "Dados n√£o encontrados";    
+                return "Dados n„o encontrados";    
         }
     }
     
